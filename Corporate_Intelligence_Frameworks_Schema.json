@@ -1,0 +1,325 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Corporate Intelligence Frameworks Combined Schema with Descriptions",
+  "type": "object",
+  "properties": {
+    "socialValueModel": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "activity": {
+            "type": "string",
+            "description": "Description of the activity being performed"
+          },
+          "model_criteria_key": {
+            "type": "string",
+            "description": "Model Criteria Key as per the Social Value Model Tool"
+          },
+          "model_criteria": {
+            "type": "string",
+            "description": "Model Criteria Name as per the Social Value Model Tool"
+          },
+          "outcome_key": {
+            "type": "string",
+            "description": "Outcome Key as per the Social Value Model Tool"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "Outcome Name as per the Social Value Model Tool"
+          },
+          "mission_key": {
+            "type": "string",
+            "description": "Mission Key as per the Social Value Model Tool"
+          },
+          "mission": {
+            "type": "string",
+            "description": "Mission Name as per the Social Value Model Tool"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record"
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record"
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record"
+          },
+          "source_4": {
+            "type": "string",
+            "description": "Quartenary source URL for this record"
+          },
+          "source_5": {
+            "type": "string",
+            "description": "Quinary source URL for this record"
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+          },
+          "ai_verification_level": {
+            "type": "string",
+            "description": "high,medium,low as provided by the fact-checking ai agent"
+          }
+        },
+        "required": [
+          "company_name",
+          "activity",
+          "model_criteria_key",
+          "model_criteria",
+          "outcome_key",
+          "outcome",
+          "mission_key",
+          "mission",
+          "evidence",
+          "source_1",
+          "ai_verification_status",
+          "ai_verification_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tomsFramework": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "theme": {
+            "type": "string",
+            "description": "Name of the Themes as mentioned in the Themes Outcomes and Measurements Framework that the registered business shows alignment with."
+          },
+          "impact_created": {
+            "type": "string",
+            "description": "The figure of total impact reported"
+          },
+          "impact_created_unit": {
+            "type": "string",
+            "description": "The currency symbol associated with impact reported figure"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record"
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record"
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record"
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+          },
+          "ai_confience_level": {
+            "type": "string",
+            "description": "high,medium,low as provided by the fact-checking ai agent"
+          }
+        },
+        "required": [
+          "company_name",
+          "theme",
+          "ai_verification_status",
+          "ai_confience_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sasbFramework": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "industry": {
+            "type": "string",
+            "description": "The name of the industry that this company aligns with strictly as per SASB framework"
+          },
+          "metric": {
+            "type": "string",
+            "description": "The metric defined in SASB framework that the company should be aligned with"
+          },
+          "un_sdg": {
+            "type": "string",
+            "description": "Complete UN SDG Name Aligned with this metric"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record"
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record"
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record"
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+          },
+          "ai_verification_level": {
+            "type": "string",
+            "description": "high,medium,low as provided by the fact-checking ai agent"
+          }
+        },
+        "required": [
+          "company_name",
+          "industry",
+          "metric",
+          "un_sdg",
+          "evidence",
+          "source_1",
+          "ai_verification_status",
+          "ai_verification_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "volunteerPrograms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "program": {
+            "type": "string",
+            "description": "Name of the volunteer program"
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description for the volunteer program"
+          },
+          "impact_created": {
+            "type": "string",
+            "description": "The figure of total impact created"
+          },
+          "impact_created_unit": {
+            "type": "string",
+            "description": "The currency symbol associated with impact created figure"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record"
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record"
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record"
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+          },
+          "ai_verification_level": {
+            "type": "string",
+            "description": "high,medium,low as provided by the fact-checking ai agent"
+          }
+        },
+        "required": [
+          "company_name",
+          "program",
+          "description",
+          "evidence",
+          "source_1",
+          "ai_verification_status",
+          "ai_verification_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "impactOrganisations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "impact_partner": {
+            "type": "string",
+            "description": "Name of the impact organisation associated with the company"
+          },
+          "purpose": {
+            "type": "string",
+            "description": "purpose for their association"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record"
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record"
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record"
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+          },
+          "ai_verification_level": {
+            "type": "string",
+            "description": "high,medium,low as provided by the fact-checking ai agent"
+          }
+        },
+        "required": [
+          "company_name",
+          "impact_partner",
+          "purpose",
+          "evidence",
+          "source_1",
+          "ai_verification_status",
+          "ai_verification_level"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
