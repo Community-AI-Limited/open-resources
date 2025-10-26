@@ -90,6 +90,10 @@
               "low"
             ],
             "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional note by the Fact-Checking Agent for corrections or clarifications."
           }
         },
         "required": [
@@ -163,6 +167,10 @@
               "low"
             ],
             "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional note by the Fact-Checking Agent for corrections or clarifications."
           }
         },
         "required": [
@@ -378,31 +386,67 @@
         "properties": {
           "company_name": {
             "type": "string",
-            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+            "description": "Registered name of the company, referring to the parent or top-level entity where applicable."
           },
           "impact_partner": {
             "type": "string",
-            "description": "Name of the impact organisation associated with the company"
+            "description": "The name of the NGO, nonprofit, social enterprise, or public institution partnered with."
+          },
+          "partnership_type": {
+            "type": "string",
+            "enum": [
+              "strategic_partnership",
+              "funding_support",
+              "public_sector_collaboration",
+              "community_partnership",
+              "philanthropic_donation"
+            ],
+            "description": "Classifies the nature of engagement between the company and the impact organisation."
           },
           "purpose": {
             "type": "string",
-            "description": "purpose for their association"
+            "description": "Describes the partnership's main goal or area of focus (e.g., education, health, sustainability)."
+          },
+          "duration": {
+            "type": "string",
+            "description": "Indicates how long the partnership has been active (e.g., 'Since 2020', '3 years', 'Ongoing')."
+          },
+          "impact_created": {
+            "type": "string",
+            "description": "Quantitative result or outcome of the partnership, such as number of beneficiaries or funding amount."
+          },
+          "impact_created_unit": {
+            "type": "string",
+            "description": "Measurement unit associated with impact_created (e.g., 'beneficiaries', 'GBP', 'families')."
+          },
+          "un_sdg": {
+            "type": "string",
+            "description": "The UN Sustainable Development Goal linked to the partnership, if applicable."
+          },
+          "commitment_level": {
+            "type": "string",
+            "enum": [
+              "core_commitment",
+              "strategic_initiative",
+              "occasional_activity"
+            ],
+            "description": "Specifies how deeply embedded or sustained the partnership is in the company’s operations."
           },
           "evidence": {
             "type": "string",
-            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+            "description": "Short factual summary describing the existence and purpose of the partnership."
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record"
+            "description": "Primary source URL for this record, ideally from official company or partner documentation."
           },
           "source_2": {
             "type": "string",
-            "description": "Secondary source URL for this record"
+            "description": "Secondary source URL for this record."
           },
           "source_3": {
             "type": "string",
-            "description": "Tertiary source URL for this record"
+            "description": "Tertiary source URL for this record."
           },
           "ai_verification_status": {
             "type": "string",
@@ -421,16 +465,18 @@
               "low"
             ],
             "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional note by the Fact-Checking Agent for corrections or clarifications."
           }
         },
         "required": [
           "company_name",
           "impact_partner",
-          "purpose",
-          "evidence",
-          "source_1",
+          "partnership_type",
           "ai_verification_status",
-          "ai_verification_level"
+          "ai_confidence_level"
         ],
         "additionalProperties": false
       }
