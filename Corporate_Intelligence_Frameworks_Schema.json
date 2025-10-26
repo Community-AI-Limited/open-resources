@@ -18,7 +18,12 @@
           },
           "commitment_level": {
             "type": "string",
-            "description": "core_commitment | strategic_initiative | occasional_activity"
+            "enum": [
+              "core_commitment",
+              "strategic_initiative",
+              "occasional_activity"
+            ],
+            "description": "To distinguish how deeply the company is committed to each activity found under the Social Value Model."
           },
           "model_criteria_key": {
             "type": "string",
@@ -101,50 +106,94 @@
         "properties": {
           "company_name": {
             "type": "string",
-            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+            "description": "The registered name of the company. For international entities, refer to the parent or topmost company."
           },
           "theme": {
             "type": "string",
-            "description": "Name of the Themes as mentioned in the Themes Outcomes and Measurements Framework that the registered business shows alignment with."
+            "description": "Name of the Theme as defined in the Themes, Outcomes and Measurements (TOMs) Framework that the company shows alignment with."
+          },
+          "activity": {
+            "type": "string",
+            "description": "Short description of the activity, initiative, or program that demonstrates alignment with the specified TOMs theme."
           },
           "impact_created": {
             "type": "string",
-            "description": "The figure of total impact reported"
+            "description": "Quantified social value or impact reported by the company for this activity (e.g., £2.3M, 540 volunteer hours)."
           },
           "impact_created_unit": {
             "type": "string",
-            "description": "The currency symbol associated with impact reported figure"
+            "description": "Measurement unit or currency symbol associated with the impact figure (e.g., GBP, hours, tonnes CO₂e)."
+          },
+          "metric_value": {
+            "type": "string",
+            "description": "If available, the raw numerical or percentage value representing impact under this theme."
+          },
+          "metric_unit": {
+            "type": "string",
+            "description": "The unit corresponding to the metric value (e.g., %, hours, GBP)."
+          },
+          "commitment_level": {
+            "type": "string",
+            "enum": [
+              "core_commitment",
+              "strategic_initiative",
+              "occasional_activity"
+            ],
+            "description": "Indicates how deeply this activity is embedded in the company’s operations."
+          },
+          "reporting_year": {
+            "type": "string",
+            "description": "The reporting year or financial year the data refers to (e.g., 2023-24)."
+          },
+          "framework_source": {
+            "type": "string",
+            "description": "The originating framework or methodology, defaulted to 'TOMs Framework'."
           },
           "evidence": {
             "type": "string",
-            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+            "description": "A short factual statement or citation providing proof of the activity or disclosure."
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record"
+            "description": "Primary source URL for this record."
           },
           "source_2": {
             "type": "string",
-            "description": "Secondary source URL for this record"
+            "description": "Secondary source URL for this record."
           },
           "source_3": {
             "type": "string",
-            "description": "Tertiary source URL for this record"
+            "description": "Tertiary source URL for this record."
           },
           "ai_verification_status": {
             "type": "string",
-            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status as provided by the Fact-Checking Agent."
           },
-          "ai_confience_level": {
+          "ai_verification_level": {
             "type": "string",
-            "description": "high,medium,low as provided by the fact-checking ai agent"
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional explanatory note for corrections or validation feedback added during fact-checking."
           }
         },
         "required": [
           "company_name",
           "theme",
+          "activity",
           "ai_verification_status",
-          "ai_confience_level"
+          "ai_verification_level"
         ],
         "additionalProperties": false
       }
