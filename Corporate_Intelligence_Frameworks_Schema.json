@@ -75,11 +75,21 @@
           },
           "ai_verification_status": {
             "type": "string",
-            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
           },
-          "ai_verification_level": {
+          "ai_confidence_level": {
             "type": "string",
-            "description": "high,medium,low as provided by the fact-checking ai agent"
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
           }
         },
         "required": [
@@ -106,118 +116,19 @@
         "properties": {
           "company_name": {
             "type": "string",
-            "description": "The registered name of the company. For international entities, refer to the parent or topmost company."
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
           },
           "theme": {
             "type": "string",
-            "description": "Name of the Theme as defined in the Themes, Outcomes and Measurements (TOMs) Framework that the company shows alignment with."
-          },
-          "activity": {
-            "type": "string",
-            "description": "Short description of the activity, initiative, or program that demonstrates alignment with the specified TOMs theme."
+            "description": "Name of the Themes as mentioned in the Themes Outcomes and Measurements Framework that the registered business shows alignment with."
           },
           "impact_created": {
             "type": "string",
-            "description": "Quantified social value or impact reported by the company for this activity (e.g., £2.3M, 540 volunteer hours)."
+            "description": "The figure of total impact reported"
           },
           "impact_created_unit": {
             "type": "string",
             "description": "Measurement unit or currency symbol associated with the impact figure (e.g., GBP, hours, tonnes CO₂e)."
-          },
-          "metric_value": {
-            "type": "string",
-            "description": "If available, the raw numerical or percentage value representing impact under this theme."
-          },
-          "metric_unit": {
-            "type": "string",
-            "description": "The unit corresponding to the metric value (e.g., %, hours, GBP)."
-          },
-          "commitment_level": {
-            "type": "string",
-            "enum": [
-              "core_commitment",
-              "strategic_initiative",
-              "occasional_activity"
-            ],
-            "description": "Indicates how deeply this activity is embedded in the company’s operations."
-          },
-          "reporting_year": {
-            "type": "string",
-            "description": "The reporting year or financial year the data refers to (e.g., 2023-24)."
-          },
-          "framework_source": {
-            "type": "string",
-            "description": "The originating framework or methodology, defaulted to 'TOMs Framework'."
-          },
-          "evidence": {
-            "type": "string",
-            "description": "A short factual statement or citation providing proof of the activity or disclosure."
-          },
-          "source_1": {
-            "type": "string",
-            "description": "Primary source URL for this record."
-          },
-          "source_2": {
-            "type": "string",
-            "description": "Secondary source URL for this record."
-          },
-          "source_3": {
-            "type": "string",
-            "description": "Tertiary source URL for this record."
-          },
-          "ai_verification_status": {
-            "type": "string",
-            "enum": [
-              "verified",
-              "partially_verified",
-              "unverifiable"
-            ],
-            "description": "Verification status as provided by the Fact-Checking Agent."
-          },
-          "ai_verification_level": {
-            "type": "string",
-            "enum": [
-              "high",
-              "medium",
-              "low"
-            ],
-            "description": "Confidence level assigned by the Fact-Checking Agent."
-          },
-          "verification_correction": {
-            "type": "string",
-            "description": "Optional explanatory note for corrections or validation feedback added during fact-checking."
-          }
-        },
-        "required": [
-          "company_name",
-          "theme",
-          "activity",
-          "ai_verification_status",
-          "ai_verification_level"
-        ],
-        "additionalProperties": false
-      }
-    },
-    "sasbFramework": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "company_name": {
-            "type": "string",
-            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
-          },
-          "industry": {
-            "type": "string",
-            "description": "The name of the industry that this company aligns with strictly as per SASB framework"
-          },
-          "metric": {
-            "type": "string",
-            "description": "The metric defined in SASB framework that the company should be aligned with"
-          },
-          "un_sdg": {
-            "type": "string",
-            "description": "Complete UN SDG Name Aligned with this metric"
           },
           "evidence": {
             "type": "string",
@@ -237,22 +148,123 @@
           },
           "ai_verification_status": {
             "type": "string",
-            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
           },
-          "ai_verification_level": {
+          "ai_confidence_level": {
             "type": "string",
-            "description": "high,medium,low as provided by the fact-checking ai agent"
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
+          }
+        },
+        "required": [
+          "company_name",
+          "theme",
+          "ai_verification_status",
+          "ai_confience_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sasbFramework": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The registered name of the company, in case of international company refer to the parent or topmost company."
+          },
+          "industry": {
+            "type": "string",
+            "description": "The SASB Sustainable Industry Classification System (SICS) industry to which the company belongs, e.g., 'Media & Entertainment', 'Software & IT Services'."
+          },
+          "metric_code": {
+            "type": "string",
+            "description": "The SASB metric code, such as TC-SI-230a.1, if available in the company's official disclosures."
+          },
+          "metric_name": {
+            "type": "string",
+            "description": "The name or title of the SASB metric being reported, e.g., 'Data Privacy & Security', 'Energy Management'."
+          },
+          "disclosure_summary": {
+            "type": "string",
+            "description": "Short factual description summarizing what the company reports for this SASB metric."
+          },
+          "metric_value": {
+            "type": "string",
+            "description": "The reported numeric or qualitative value disclosed by the company for this metric (e.g., '45% reduction in emissions')."
+          },
+          "metric_unit": {
+            "type": "string",
+            "description": "The unit or measurement type associated with the metric_value (e.g., 'percent', 'MWh', 'tCO₂e')."
+          },
+          "un_sdg": {
+            "type": "string",
+            "description": "The UN Sustainable Development Goal linked to this SASB metric, e.g., 'SDG 13: Climate Action'."
+          },
+          "commitment_level": {
+            "type": "string",
+            "enum": [
+              "core_commitment",
+              "strategic_initiative",
+              "occasional_activity"
+            ],
+            "description": "Specifies how deeply the SASB-aligned activity is embedded in company operations: core_commitment, strategic_initiative, or occasional_activity."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Citation or concise factual statement supporting the SASB disclosure record."
+          },
+          "source_1": {
+            "type": "string",
+            "description": "Primary source URL for this record (e.g., company ESG or sustainability report)."
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record, if available."
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record, if available."
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
+          },
+          "ai_confidence_level": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional note added by Fact-Checking Agent explaining corrections or clarifications made to the record."
           }
         },
         "required": [
           "company_name",
           "industry",
-          "metric",
-          "un_sdg",
-          "evidence",
-          "source_1",
+          "metric_name",
           "ai_verification_status",
-          "ai_verification_level"
+          "ai_confidence_level"
         ],
         "additionalProperties": false
       }
@@ -300,11 +312,21 @@
           },
           "ai_verification_status": {
             "type": "string",
-            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
           },
-          "ai_verification_level": {
+          "ai_confidence_level": {
             "type": "string",
-            "description": "high,medium,low as provided by the fact-checking ai agent"
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
           }
         },
         "required": [
@@ -354,11 +376,21 @@
           },
           "ai_verification_status": {
             "type": "string",
-            "description": "verified, unverifiable, partially verfied as provided by the fact-checking ai agent"
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
           },
-          "ai_verification_level": {
+          "ai_confidence_level": {
             "type": "string",
-            "description": "high,medium,low as provided by the fact-checking ai agent"
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
           }
         },
         "required": [
