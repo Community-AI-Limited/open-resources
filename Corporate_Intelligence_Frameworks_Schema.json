@@ -16,6 +16,10 @@
             "type": "string",
             "description": "Description of the activity being performed"
           },
+          "commitment_level": {
+            "type": "string",
+            "description": "core_commitment | strategic_initiative | occasional_activity"
+          },
           "model_criteria_key": {
             "type": "string",
             "description": "Model Criteria Key as per the Social Value Model Tool"
