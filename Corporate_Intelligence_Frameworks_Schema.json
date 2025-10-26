@@ -280,35 +280,63 @@
           },
           "program": {
             "type": "string",
-            "description": "Name of the volunteer program"
+            "description": "The name of the volunteering initiative, campaign, or program."
+          },
+          "program_type": {
+            "type": "string",
+            "enum": [
+              "employee_volunteering",
+              "skills_based_volunteering",
+              "corporate_campaign",
+              "community_partnership",
+              "relief_volunteering"
+            ],
+            "description": "Categorization of the volunteer program type based on nature and structure of engagement."
           },
           "description": {
             "type": "string",
-            "description": "Short description for the volunteer program"
+            "description": "Short factual summary of the volunteer program and its objectives."
           },
           "impact_created": {
             "type": "string",
-            "description": "The figure of total impact created"
+            "description": "Quantitative value of total volunteering effort (e.g., '3,200')."
           },
           "impact_created_unit": {
             "type": "string",
-            "description": "The currency symbol associated with impact created figure"
+            "description": "Measurement unit associated with impact_created (e.g., 'hours', 'employees', 'beneficiaries')."
+          },
+          "community_beneficiary": {
+            "type": "string",
+            "description": "The community or group benefiting from the volunteer program (e.g., 'local schools', 'elderly support groups')."
+          },
+          "un_sdg": {
+            "type": "string",
+            "description": "The UN Sustainable Development Goal aligned with the volunteering activity (e.g., 'SDG 4: Quality Education')."
+          },
+          "commitment_level": {
+            "type": "string",
+            "enum": [
+              "core_commitment",
+              "strategic_initiative",
+              "occasional_activity"
+            ],
+            "description": "Specifies how deeply the volunteering activity is embedded in the company's social value culture."
           },
           "evidence": {
             "type": "string",
-            "description": "Citation or a small description as an evidence for this particular record (Supporting proof)"
+            "description": "Short factual statement citing the source or evidence of the activity."
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record"
+            "description": "Primary source URL for this record (e.g., company CSR or sustainability report)."
           },
           "source_2": {
             "type": "string",
-            "description": "Secondary source URL for this record"
+            "description": "Secondary source URL for this record."
           },
           "source_3": {
             "type": "string",
-            "description": "Tertiary source URL for this record"
+            "description": "Tertiary source URL for this record."
           },
           "ai_verification_status": {
             "type": "string",
@@ -327,16 +355,18 @@
               "low"
             ],
             "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional explanatory note added by Fact-Checking Agent for any corrections or clarifications."
           }
         },
         "required": [
           "company_name",
           "program",
-          "description",
-          "evidence",
-          "source_1",
+          "program_type",
           "ai_verification_status",
-          "ai_verification_level"
+          "ai_confidence_level"
         ],
         "additionalProperties": false
       }
