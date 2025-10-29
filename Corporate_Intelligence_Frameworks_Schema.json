@@ -55,7 +55,7 @@
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record"
+            "description": "AI Knowledge or Primary source URL for this record"
           },
           "source_2": {
             "type": "string",
@@ -140,7 +140,7 @@
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record"
+            "description": "AI Knowledge or primary source URL for this record"
           },
           "source_2": {
             "type": "string",
@@ -234,7 +234,7 @@
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record (e.g., company ESG or sustainability report)."
+            "description": "AI Knowledge or Primary source URL for this record (e.g., company ESG or sustainability report)."
           },
           "source_2": {
             "type": "string",
@@ -273,6 +273,94 @@
           "metric_name",
           "ai_verification_status",
           "ai_confidence_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sasbDisclosureGaps": {
+      "type": "array",
+      "description": "Represents SASB topics that are material for the company but under-addressed or missing from disclosures.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "Registered name of the company."
+          },
+          "industry": {
+            "type": "string",
+            "description": "SASB SICS industry classification, e.g., 'Software & IT Services'."
+          },
+          "metric_code": {
+            "type": "string",
+            "description": "SASB metric code, e.g., 'TC-SI-130a.2'."
+          },
+          "metric_name": {
+            "type": "string",
+            "description": "Name of the SASB metric that is material but under-addressed."
+          },
+          "reason_for_gap": {
+            "type": "string",
+            "description": "Explanation of why the SASB topic is under-addressed or missing."
+          },
+          "potential_risk": {
+            "type": "string",
+            "description": "Potential business or ESG risk arising from the disclosure gap."
+          },
+          "suggested_action": {
+            "type": "string",
+            "description": "Recommended steps or actions to improve SASB disclosure alignment."
+          },
+          "priority_level": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "Indicates the urgency or importance of addressing this gap."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Supporting explanation or citation demonstrating materiality of this SASB topic."
+          },
+          "source_2": {
+            "type": "string",
+            "description": "Secondary source URL for this record, if available."
+          },
+          "source_3": {
+            "type": "string",
+            "description": "Tertiary source URL for this record, if available."
+          },
+          "ai_verification_status": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverifiable"
+            ],
+            "description": "Verification status assigned by the Fact-Checking Agent."
+          },
+          "ai_confidence_level": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level assigned by the Fact-Checking Agent."
+          },
+          "verification_correction": {
+            "type": "string",
+            "description": "Optional note added by Fact-Checking Agent explaining corrections or clarifications made to the record."
+          }
+        },
+        "required": [
+          "company_name",
+          "industry",
+          "metric_code",
+          "metric_name",
+          "reason_for_gap",
+          "suggested_action",
+          "priority_level",
+          "evidence",
+          "source_1"
         ],
         "additionalProperties": false
       }
@@ -336,7 +424,7 @@
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record (e.g., company CSR or sustainability report)."
+            "description": "AI Knowledge or Primary source URL for this record (e.g., company CSR or sustainability report)."
           },
           "source_2": {
             "type": "string",
@@ -438,7 +526,7 @@
           },
           "source_1": {
             "type": "string",
-            "description": "Primary source URL for this record, ideally from official company or partner documentation."
+            "description": "AI Knowledge or Primary source URL for this record, ideally from official company or partner documentation."
           },
           "source_2": {
             "type": "string",
