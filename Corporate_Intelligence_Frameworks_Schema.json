@@ -99,6 +99,7 @@
         "required": [
           "company_name",
           "activity",
+          "commitment_level",
           "model_criteria_key",
           "model_criteria",
           "outcome_key",
@@ -176,6 +177,7 @@
         "required": [
           "company_name",
           "theme",
+          "evidence",
           "ai_verification_status",
           "ai_confience_level"
         ],
@@ -270,7 +272,10 @@
         "required": [
           "company_name",
           "industry",
+          "metric_code",
           "metric_name",
+          "commitment_level",
+          "evidence",
           "ai_verification_status",
           "ai_confidence_level"
         ],
@@ -357,6 +362,7 @@
           "metric_code",
           "metric_name",
           "reason_for_gap",
+          "potential_risk",
           "suggested_action",
           "priority_level",
           "evidence",
@@ -461,6 +467,8 @@
           "company_name",
           "program",
           "program_type",
+          "commitment_level",
+          "evidence",
           "ai_verification_status",
           "ai_confidence_level"
         ],
@@ -563,6 +571,8 @@
           "company_name",
           "impact_partner",
           "partnership_type",
+          "commitment_level",
+          "evidence",
           "ai_verification_status",
           "ai_confidence_level"
         ],
